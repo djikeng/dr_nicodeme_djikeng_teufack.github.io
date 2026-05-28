@@ -1,0 +1,282 @@
+Here's a responsive portfolio for Dr. Djikeng Teufack Nicodème, Geomatician-Geographer, using HTML, CSS, and JavaScript with TailwindCSS:
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Dr. Djikeng Teufack Nicodème - Geomaticien-Geographe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more precise styling */
+        .hero-pattern {
+            background-image: radial-gradient(circle at 10% 20%, rgba(37, 145, 251, 0.1) 0%, rgba(0, 0, 0, 0) 90%);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .skill-bar {
+            height: 6px;
+            border-radius: 3px;
+        }
+        .map-marker {
+            position: relative;
+        }
+        .map-marker::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #3b82f6;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 3px solid white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">DTN<span class="text-gray-800">Geo</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-blue-600 transition">À propos</a>
+                <a href="#experience" class="hover:text-blue-600 transition">Expérience</a>
+                <a href="#projects" class="hover:text-blue-600 transition">Projets</a>
+                <a href="#skills" class="hover:text-blue-600 transition">Compétences</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden bg-white py-2 px-4 shadow-lg" id="mobile-menu">
+            <a href="#about" class="block py-2 hover:text-blue-600 transition">À propos</a>
+            <a href="#experience" class="block py-2 hover:text-blue-600 transition">Expérience</a>
+            <a href="#projects" class="block py-2 hover:text-blue-600 transition">Projets</a>
+            <a href="#skills" class="block py-2 hover:text-blue-600 transition">Compétences</a>
+            <a href="#contact" class="block py-2 hover:text-blue-600 transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-32 pb-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Dr. Djikeng Teufack Nicodème</h1>
+                <h2 class="text-2xl md:text-3xl text-blue-600 font-semibold mb-6">Geomaticien-Geographe | Expert SIG</h2>
+                <p class="text-lg mb-8 text-gray-600">Avec plus de 5 ans d'expérience en géomatique appliquée, je combine expertise technique et vision stratégique pour résoudre des problèmes spatiaux complexes.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition">Me contacter</a>
+                    <a href="#projects" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition">Voir mes projets</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center fade-in">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Dr. Djikeng Teufack Nicodème" class="w-full max-w-md rounded-lg shadow-xl">
+                    <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-map-marked-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold">5+ années</p>
+                                <p class="text-sm text-gray-600">d'expérience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    À propos de moi
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-600"></span>
+                </span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Portrait" class="w-64 h-64 object-cover rounded-full border-4 border-blue-600 shadow-lg">
+                        <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white p-3 rounded-full">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Qui suis-je ?</h3>
+                    <p class="text-gray-600 mb-6">Je suis Dr. Djikeng Teufack Nicodème, géomaticien-géographe spécialisé dans les systèmes d'information géographique (SIG), la télédétection et l'analyse spatiale. Mon parcours académique et professionnel m'a permis d'acquérir une expertise solide dans la collecte, le traitement et l'analyse des données géospatiales.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bullseye text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Mission</h4>
+                                <p class="text-gray-600 text-sm">Fournir des solutions géospatiales innovantes pour une prise de décision éclairée.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-lightbulb text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Vision</h4>
+                                <p class="text-gray-600 text-sm">Promouvoir l'utilisation des technologies géospatiales pour le développement durable.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-blue-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-map text-blue-600 mr-2"></i>
+                            <span>Cartographie</span>
+                        </div>
+                        <div class="bg-blue-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-satellite-dish text-blue-600 mr-2"></i>
+                            <span>Télédétection</span>
+                        </div>
+                        <div class="bg-blue-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-database text-blue-600 mr-2"></i>
+                            <span>Analyse spatiale</span>
+                        </div>
+                        <div class="bg-blue-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-chart-line text-blue-600 mr-2"></i>
+                            <span>Modélisation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Parcours professionnel
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-600"></span>
+                </span>
+            </h2>
+            
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Timeline line -->
+                <div class="absolute left-8 md:left-1/2 h-full w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-8">
+                    <!-- Item 1 -->
+                    <div class="relative pl-16 md:pl-0 md:flex justify-between timeline-item">
+                        <div class="md:w-5/12 md:pr-8 md:text-right mb-4 md:mb-0">
+                            <h3 class="font-bold text-lg">Consultant Senior en Géomatique</h3>
+                            <p class="text-blue-600">GeoConsult Africa</p>
+                            <p class="text-sm text-gray-500">2021 - Présent</p>
+                        </div>
+                        <div class="md:w-5/12 pl-8 md:pl-0">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <p>Direction de projets géomatiques complexes pour des clients internationaux, développement de solutions SIG sur mesure, et formation des équipes techniques.</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">ArcGIS Pro</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">QGIS</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="relative pl-16 md:pl-0 md:flex justify-between timeline-item">
+                        <div class="md:w-5/12 md:pr-8 md:text-right mb-4 md:mb-0 order-2">
+                            <h3 class="font-bold text-lg">Chargé de Recherche</h3>
+                            <p class="text-blue-600">Institut de Géographie Appliquée</p>
+                            <p class="text-sm text-gray-500">2019 - 2021</p>
+                        </div>
+                        <div class="md:w-5/12 pl-8 md:pl-0 order-1">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <p>Recherche sur l'utilisation des SIG dans la gestion des ressources naturelles, publication d'articles scientifiques, et supervision d'étudiants en master.</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Recherche</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Enseignement</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Publications</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="relative pl-16 md:pl-0 md:flex justify-between timeline-item">
+                        <div class="md:w-5/12 md:pr-8 md:text-right mb-4 md:mb-0">
+                            <h3 class="font-bold text-lg">Géomaticien</h3>
+                            <p class="text-blue-600">Ministère de l'Urbanisme</p>
+                            <p class="text-sm text-gray-500">2017 - 2019</p>
+                        </div>
+                        <div class="md:w-5/12 pl-8 md:pl-0">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <p>Développement de bases de données géographiques pour la planification urbaine, création d'outils cartographiques interactifs, et support technique aux décideurs.</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PostgreSQL</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">GeoServer</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Cartographie web</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="inline-flex items-center text-blue-600 font-medium">
+                    <span>Télécharger mon CV complet</span>
+                    <i class="fas fa-download ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 relative">
+                <span class="relative inline-block">
+                    Projets récents
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-600"></span>
+                </span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/
